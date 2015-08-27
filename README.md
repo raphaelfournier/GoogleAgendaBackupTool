@@ -7,29 +7,28 @@ Written in Python 3.
 
 * Download
   
-  git clone https://github.com/raphaelfournier/GoogleAgendaBackupTool.git
+        git clone https://github.com/raphaelfournier/GoogleAgendaBackupTool.git
 
 * Install dependency
 
-    sudo pip install configparser
-    sudo apt-get install wget
+        sudo pip install configparser
+        sudo apt-get install wget
 
 * Edit settings.ini file
 
-    cd GoogleAgendaBackupTool
-    vim settings.ini
+        cd GoogleAgendaBackupTool
+        vim settings.ini
 
 ## Settings
 
-There's two sections in the `settings.ini` file, called `general` and `urls`.
+There are two sections in the *settings.ini* file, called `general` and `urls`.
 
-The `general` section contains two variables, `BackupDir` and `PidFileName`,
-which defaults to `backup_gcal.pid`.
+The `general` section contains two variables, `BackupDir` (defaults to /home/user in the included version) and `PidFileName`, which defaults to `backup_gcal.pid`.
 
 The `urls` section contains the urls to retrieve your calendars from Google
 Agenda, with their private addresses. The format is the following:
 
-    CalendarName: https://www.google.com/calendar/ical/theRestOfYourUrl
+      CalendarName: https://www.google.com/calendar/ical/theRestOfYourUrl
 
 ### To get the addresses of your calendar
 
@@ -50,11 +49,11 @@ command.
 
 * Test run :
 
-    python GoogleAgendaBackupTool/backupGoogleCal.py
+        python GoogleAgendaBackupTool/backupGoogleCal.py
 
 * Cron
 
-    crontab -e
-    # every Thursday at 4pm, the command is launched, files saved in the BackupDir folder and you receive a mail notification
-    00 16 * * 4 python /home/user/GoogleAgendaBackupTool/backupGoogleCal.py | mail yourmail@exemple.com
+        crontab -e
+        # every Thursday at 4pm, the command is launched, files saved in the BackupDir folder and you receive a mail notification
+        00 16 * * 4 python /home/user/GoogleAgendaBackupTool/backupGoogleCal.py | mail yourmail@exemple.com
     <save>
